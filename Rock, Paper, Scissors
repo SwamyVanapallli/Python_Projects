@@ -1,0 +1,77 @@
+import random
+import bcolors
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+rps = [rock, paper, scissors]
+
+score = 0
+# INPUT
+while True:
+
+    user = int(
+        input(
+            'What do you choose? \nType 0 for Rock, 1 for Paper or 2 for Scissors.\n'
+        ))
+        
+    comp = random.choice(rps)
+
+    if user == 0:
+        print(bcolors.OKGREEN + f"You:\n{rock}")
+        print(bcolors.WARNING + f"Computer: {comp}")
+        if comp == scissors:
+            score += 1
+            print(f"YOU ROCK🤘👨‍🎤!!\ncurrent score: {score}")
+        elif comp == rock:
+            print(f"current score: {score}")
+        elif comp == paper:
+            print(f"\nYOU LOST!😜\n\n")
+            score = 0
+
+    elif user == 1:
+        print(bcolors.OKGREEN + f"YOUR MOVE:\n{paper}")
+        print(bcolors.WARNING + f"Computer: {comp}")
+        if comp == rock:
+            score += 1
+            print(f"SUPERR🤩!!\ncurrent score: {score}")
+        elif comp == paper:
+            print(f"current score: {score}")
+        else:
+            print("\nYOU LOST!😜\n\n")
+            score = 0
+
+    elif user == 2:
+        print(bcolors.OKGREEN + f"YOUR MOVE:\n{scissors}")
+        print(bcolors.WARNING + f"Computer: {comp}")
+        if comp == paper:
+            score += 1
+            print(f"YOU TEARED IT😉\ncurrent score: {score}")
+        elif comp == scissors:
+            print(f"current score: {score}")
+        else:
+            print("\nYOU LOST!😜\n\n")
+            score = 0
